@@ -2,7 +2,7 @@
 	
 	<?php global $data; ?>
 	
-	<?php if($data['check_stripedborder']) { ?><div class="hr-border"></div><?php } ?>
+	<?php /*if($data['check_stripedborder']) { ?><div class="hr-border"></div><?php }*/ ?>
 	
 	<?php if($data['check_twitterbar'] == true) { ?>
 	<div id="twitterbar" class="clearfix">

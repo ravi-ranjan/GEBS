@@ -863,8 +863,13 @@
 	/* ------------------------------------------------------------------------ */
 		.flex-direction-nav .flex-next {right: -40px; *right:0;}
 		.flex-direction-nav .flex-prev {left: -40px; *left: 0;}
-		
-		
+	}
+	
+	@media only screen and (min-width: 320px) and (max-width: 480px) {
+		.callus {
+			font-family: Open Sans,Arial,Helvetica,sans-serif;
+			font-size: 11px !important;
+		}	
 	}
 	
 /* ------------------------------------------------------------------------ */

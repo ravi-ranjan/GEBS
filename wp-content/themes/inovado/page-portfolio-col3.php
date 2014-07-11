@@ -6,12 +6,14 @@ Template Name: Portfolio: 3 Columns
 
 <?php get_header(); ?>
 
-<?php get_template_part( 'framework/inc/titlebar' ); ?>
+<?php get_template_part( 'framework/inc/titlebar' ); 
+$getPageName = get_the_title(get_the_ID());
+?>
 	
 <div id="page-wrap" class="container portfolio">
 
 	<!-- Content -->
-	<div id="content" class="sixteen columns">
+	<?php /*?><div id="content" class="sixteen columns">
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			
 		<article class="post" id="post-<?php the_ID(); ?>">
@@ -27,35 +29,38 @@ Template Name: Portfolio: 3 Columns
 		</article>
 
 		<?php endwhile; endif; ?>
-	</div>
+	</div><?php */?>
 	<!-- End: content -->
 	
-<div id="filters" class="sixteen columns">
-<?php	$portfolio_filters = get_terms('portfolio_filter');
-		if($portfolio_filters): ?>
-			<ul class="clearfix">
-				<li><a href="#" data-filter="*" class="active"><?php _e('All', 'minti'); ?></a></li>	
-				<?php foreach($portfolio_filters as $portfolio_filter): ?>
-					<?php if(get_post_meta(get_the_ID(), 'minti_portfoliofilter', false)  && !in_array('0', get_post_meta(get_the_ID(), 'minti_portfoliofilter', false))): ?>
-						<?php if(in_array($portfolio_filter->term_id, get_post_meta(get_the_ID(), 'minti_portfoliofilter', false))): ?>
-							<li><a href="#" data-filter=".term-<?php echo $portfolio_filter->slug; ?>"><?php echo $portfolio_filter->name; ?></a></li>
+	<div id="filters" class="sixteen columns">
+	<?php	
+		if ($getPageName == "Partners"){
+		$partner_regions = get_terms('partner region');
+			if($partner_regions): ?>
+				<ul class="clearfix">
+					<li><a href="#" data-filter="*" class="active"><?php _e('All', 'minti'); ?></a></li>	
+					<?php foreach($partner_regions as $partner_region): ?>
+						<?php if(get_post_meta(get_the_ID(), 'minti_portfoliofilter', false)  && !in_array('0', get_post_meta(get_the_ID(), 'minti_portfoliofilter', false))): ?>
+							<?php if(in_array($partner_region->term_id, get_post_meta(get_the_ID(), 'minti_portfoliofilter', false))): ?>
+								<li><a href="#" data-filter=".term-<?php echo $partner_region->slug; ?>"><?php echo $partner_region->name; ?></a></li>
+							<?php endif; ?>
+						<?php else: ?>
+							<li><a href="#" data-filter=".term-<?php echo $partner_region->slug; ?>"><?php echo $partner_region->name; ?></a></li>
 						<?php endif; ?>
-					<?php else: ?>
-						<li><a href="#" data-filter=".term-<?php echo $portfolio_filter->slug; ?>"><?php echo $portfolio_filter->name; ?></a></li>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</ul>
-		<?php endif; ?>
-</div>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; 
+		}?>
+	</div>
 	
 	<div id="portfolio-wrap">
-	
 		<?php
+		if ($getPageName == "Partners"){
 			global $wp_query;
 			$portfolioitems = $data['text_portfolioitems']; // Get Items per Page Value
 			$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 			$args = array(
-				'post_type' 		=> 'portfolio',
+				'post_type' 		=> 'partner',
 				'posts_per_page' 	=> $portfolioitems,
 				'post_status' 		=> 'publish',
 				'orderby' 			=> 'date',
@@ -70,17 +75,19 @@ Template Name: Portfolio: 3 Columns
 			}
 			if($selectedfilters){
 				$args['tax_query'][] = array(
-					'taxonomy' 	=> 'portfolio_filter',
+					'taxonomy' 	=> 'partner region',
 					'field' 	=> 'ID',
 					'terms' 	=> $selectedfilters
 				);
 			}
 			
 			$wp_query = new WP_Query($args);
-			
 			while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
-			<?php $terms = get_the_terms( get_the_ID(), 'portfolio_filter' ); ?>              	
+			<?php $terms = get_the_terms( get_the_ID(), 'partner region' ); 
+				$getCustomPostValues = get_post_custom(get_the_ID());
+				
+			?>              	
 			<div class="<?php if($terms) : foreach ($terms as $term) { echo 'term-'.$term->slug.' '; } endif; ?>portfolio-item one-third columns">
 				
 				<?php // Define if Lightbox Link or Not
@@ -113,15 +120,28 @@ Template Name: Portfolio: 3 Columns
 					<div class="portfolio-it">
 				  		<?php echo $link; ?><span class="portfolio-pic"><?php the_post_thumbnail('eight-columns'); ?><div class="portfolio-overlay"><?php echo $lightboxtype; ?></div></span></a>
 				  		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="portfolio-title"><h4><?php the_title(); ?></h4>
-				  		<span><?php if(get_post_meta( get_the_ID(), "minti_subtitle", true ) != '' ) { echo get_post_meta( get_the_ID(), "minti_subtitle", true ); } else { echo substr(get_the_excerpt(),0,25).'...'; } ?></span></a>
+				  		<span>
+							<?php 	
+								if(get_post_meta( get_the_ID(),'partner_city',true) != '' )
+								{ 
+									echo get_post_meta( get_the_ID(), "partner_city", true );
+								}
+								if(get_post_meta( get_the_ID(),'partner_country',true) != '' )
+								{ 
+									echo (get_post_meta( get_the_ID(),'partner_city',true) != '' ? " , " : "").get_post_meta( get_the_ID(), "partner_country", true );
+								}
+							?>
+                         </span>
+                         </a>
 				  	</div>
 				  	<?php echo $embedd; ?>
 				<?php } ?>
 							
 			</div> <!-- end of terms -->	
 			
-		<?php endwhile; ?>
-		
+		<?php endwhile; 
+		}
+		?>
 	</div>
 	
 	<div class="sixteen columns">

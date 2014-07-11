@@ -5,30 +5,36 @@
 		<?php if ( has_post_thumbnail() && get_post_meta( get_the_ID(), 'minti_titlebar', true ) == 'featuredimage' ) { ?>
 		<!-- Titlebar Type: Post Thumbnail -->
 		
-			<div id="alt-title" class="post-thumbnail" style="background-image: url( <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' ); echo $src[0]; ?> );">
-				<div class="grid"></div>
+			<!--<div id="alt-title" class="post-thumbnail" style="background-image: url( <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' ); echo $src[0]; ?> );">-->
+            <div id="title" style="background-image: url( <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' ); echo $src[0]; ?> );">
+            <!--<div id="title">-->
+				<!--<div class="grid"></div>-->
 				<div class="container">
+                	<div class="ten columns">
 					<h1><?php the_title(); ?><?php if($data['text_titledivider'] != "") { echo $data['text_titledivider']; } ?></h1>
 					<?php if(get_post_meta( get_the_ID(), 'minti_subtitle', true )){ echo '<h2>'.get_post_meta( get_the_ID(), 'minti_subtitle', true ).'</h2>'; } ?>
-				</div>
-			</div>
-			
-			<?php if(get_post_meta( get_the_ID(), 'minti_featuredimage-breadcrumbs', true ) == true) { ?>
-				<div id="alt-breadcrumbs">
-					<div class="container">
+                    </div>
+                    <?php if(get_post_meta( get_the_ID(), 'minti_featuredimage-breadcrumbs', true ) == true) { ?>
+				<div id="breadcrumbs" class="six columns breadrcumbpadding">
+					<div id="crumbs">
 						<?php minti_breadcrumbs(); ?>
 					</div>
 				</div>
 			<?php } ?>
+				</div>
+			</div>
 			
-			<?php if($data['check_stripedborder']) { ?><div class="hr-border"></div><?php } ?>
+			
+			
+			<?php /*if($data['check_stripedborder']) { ?><div class="hr-border"></div><?php }*/ ?>
 			
 		<?php /* ---------------------------------------------------------------------------------------*/ ?>
 			
 		<?php } elseif ( has_post_thumbnail() && get_post_meta( get_the_ID(), 'minti_titlebar', true ) == 'featuredimage2' ) { ?>
 		<!-- Titlebar Type: No Titlebar -->
 		
-			<div id="alt-title-2" class="post-thumbnail" style="background-image: url( <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' ); echo $src[0]; ?> );">
+			<!--<div id="alt-title-2" class="post-thumbnail" style="background-image: url( <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' ); echo $src[0]; ?> );">-->
+            <div id="title" style="background-image: url( <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full', false, '' ); echo $src[0]; ?> );">
 				<div class="container">
 					<div class="ten columns">
 						<h1><?php the_title(); ?><?php if($data['text_titledivider'] != "") { echo $data['text_titledivider']; } ?></h1>

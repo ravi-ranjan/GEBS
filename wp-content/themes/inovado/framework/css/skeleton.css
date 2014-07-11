@@ -33,7 +33,7 @@
         .container .one.columns                     { width: 28px; }
         .container .two.columns                     { width: 76px; }
         .container .three.columns                   { width: 124px; }
-        .container .four.columns                    { width: 172px; }
+        .container .four.columns                    { width: 124px; }
         .container .five.columns                    { width: 220px; }
         .container .six.columns                     { width: 268px; }
         .container .seven.columns                   { width: 316px; }
@@ -41,7 +41,7 @@
         .container .nine.columns                    { width: 412px; }
         .container .ten.columns                     { width: 460px; }
         .container .eleven.columns                  { width: 508px; }
-        .container .twelve.columns                  { width: 556px; }
+        .container .twelve.columns                  { width: 604px; }
         .container .thirteen.columns                { width: 604px; }
         .container .fourteen.columns                { width: 652px; }
         .container .fifteen.columns                 { width: 700px; }
