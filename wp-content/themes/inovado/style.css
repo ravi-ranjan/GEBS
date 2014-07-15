@@ -57,7 +57,7 @@ License URI:
 .container .one.columns                     { width: 40px;  }
 .container .two.columns                     { width: 100px; }
 .container .three.columns                   { width: 160px; }
-.container .four.columns                    { /*width: 220px;*/ }
+.container .four.columns                    { width: 220px; }
 .container .five.columns                    { width: 280px; }
 .container .six.columns                     { width: 340px; }
 .container .seven.columns                   { width: 400px; }
@@ -65,7 +65,7 @@ License URI:
 .container .nine.columns                    { width: 520px; }
 .container .ten.columns                     { width: 580px; }
 .container .eleven.columns                  { width: 640px; }
-.container .twelve.columns                  { width: 760px; }
+.container .twelve.columns                  { width: 700px; }
 .container .thirteen.columns                { width: 760px; }
 .container .fourteen.columns                { width: 820px; }
 .container .fifteen.columns                 { width: 880px; }
@@ -643,13 +643,10 @@ div.wpcf7-validation-errors {
         line-height: 39px;
         color: #999999;
     }
-	
+
         #topbar .callus a { color: #999999 }
         #topbar .callus a:hover { color: #666666 }
- .callus {
-    font-family: Open Sans,Arial,Helvetica,sans-serif;
-    font-size: 13px !important;
-}
+    
     #topbar .social-icons ul {
         list-style: none;
         margin: 0 0 -1px 0;
@@ -822,10 +819,6 @@ div.wpcf7-validation-errors {
         	max-width: 100%;
         	height: auto;
         }
-		.logo img{
-			margin: 7px 0 0;
-		    width: 160px;
-		}
         
         .header .logo .logo_standard{
         }
@@ -933,9 +926,7 @@ div.wpcf7-validation-errors {
     background-image: -ms-linear-gradient(bottom, #FAFAFA 0%, #FFFFFF 100%);
     border-bottom: 1px solid #e4e4e4;
     border-top: 1px solid #e4e4e4;
-    /*padding: 25px 0 25px 0;*/
-	padding:30px 0 12px;
-	height:50px;
+    padding: 25px 0 25px 0;
     box-shadow: inset 0px 3px 0px 0px rgba(0, 0, 0, 0.02);
     -webkit-box-shadow: inset 0px 3px 0px 0px rgba(0, 0, 0, 0.02);
     -moz-box-shadow: inset 0px 3px 0px 0px rgba(0, 0, 0, 0.02);
@@ -943,11 +934,10 @@ div.wpcf7-validation-errors {
 
     #title h1,
     #title .blog-h1 {
-        font-size: 20px !important;
+        font-size: 18px;
         line-height: 28px;
         color: #666666;
         margin: 0;
-		font-family:Roboto,Arial,Helvetica,sans-serif !important;
     }
 
     #title h2,
@@ -962,7 +952,7 @@ div.wpcf7-validation-errors {
     }
 
     #title #breadcrumbs {
-        font-size: 13px;
+        font-size: 11px;
         text-align: right;
         color: #aaaaaa;
         line-height: 28px;
@@ -970,7 +960,7 @@ div.wpcf7-validation-errors {
         margin: 0;
     }
 
-   /* #title #breadcrumbs.breadrcumbpadding { padding-top: 12px; }*/
+    #title #breadcrumbs.breadrcumbpadding { padding-top: 12px; }
 
     #title #breadcrumbs a { color: #aaaaaa; }
 
@@ -2891,3 +2881,35 @@ h3.error-404 {
 /* ------------------------------------------------------------------------ */
 /* EOF
 /* ------------------------------------------------------------------------ */
+/*partner detail page.*/
+.portfolio-detail #content a.button{
+	float:left;
+	background:url("framework/images/arrow.png") no-repeat scroll 5% center #F7F7F7;
+	padding-left:2.5%; padding-right:1%;
+}
+#back { float:left; width:100%;}
+h3.partner_title, h3.video_title { background:none; border-bottom: 1px solid #f1f1f1;}
+.partner_title span, .video_title span {
+display: inline-block;
+line-height: 1 !important;
+background: none;
+margin: 0 0 -1px 0;
+padding: 0 0 10px 0;
+}
+.partner_detail{padding:30px 0 30px 0 !important;}
+.contact, .partner-detail-description-text { float:left; width:100%;}
+.contact span { float:left; padding-right:10px;}
+.contact_email{width:95% !important;max-width:100% !important;}
+.partner-country-description{width: 100%;float: left;margin: 0;padding: 0;border-bottom: 1px solid #f1f1f1;padding: 0 0 20px 0;margin: 0 0 20px 0;}
+.partner-country-description ul{display: inline; list-style: none; margin: 0; padding: 0;}
+.partner-country-description ul li{display: inline; list-style: none; background: url('framework/images/map_cst.png'); background-repeat: no-repeat; padding-left: 15px; padding-right: 15px; float: left;}
+
+.featured_image_partner{width: 100%;height: 100%;margin-top: 15px;margin-bottom: 5px;}
+.featured_image_partner img{width:100%;}
+/*EOF*/
+/*video details page*/
+.video-detail-attributes ul li {
+	background:none;	
+}
+
+/*EOF*/

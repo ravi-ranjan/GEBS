@@ -588,6 +588,11 @@ function yss_custom_post_cat_save( $post_id ) {
 	  }
   
 }
+function add_webinar_to_cf7() {
+		       return get_post_meta( get_the_ID(), "partner_email", true );
+}
+wpcf7_add_shortcode('wpcf7_add_wd', 'add_webinar_to_cf7', true);
 
+/* Prints the taxonomy box content */
 
 ?>
