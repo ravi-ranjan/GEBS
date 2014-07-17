@@ -25,13 +25,13 @@ $getDetails = get_post_meta(get_the_ID());
 			echo '<ul>';
 			if(get_post_meta( get_the_ID(),'partner_country',true) != '' )
 			{ 
-				echo "<li> ".get_post_meta( get_the_ID(), "partner_country", true ).'</li>';
+				echo "<li><i class='icon-map-marker'></i>". get_post_meta( get_the_ID(), "partner_country", true ).'</li>';
 			}
 			if(get_post_meta( get_the_ID(), "custom_post_cat_select") != "" ){
 				
 				$getServices = get_post_meta( get_the_ID(), "custom_post_cat_select");
 				foreach(array_unique($getServices) as $service){
-				echo '<li>'.$service.'</li>';
+				echo '<li><i class="icon-map-marker"></i>'. $service.'</li>';
 				$s++;
 				}
 			}
@@ -45,7 +45,7 @@ $getDetails = get_post_meta(get_the_ID());
             <div class="portfolio-detail-description">
 	        	<h3 class="title partner_title"><span>Location</span></h3>
         		<div class="portfolio-detail-description-text partner-detail-description-text">
-					<?php echo do_shortcode('[map id="map2" z="16" style="full" address="Miami" marker="yes" lat='.$lat.' lon='.$lon.'  infowindow=""]');?>
+					<?php echo do_shortcode('[map id="map2" z="16" style="full" marker="yes" lat='.$lat.' lon='.$lon.'  infowindow=""]');?>
         		</div>
       		</div>
             <?php

@@ -1777,10 +1777,11 @@ div.wpcf7-validation-errors {
 
             #filters ul li a:hover {    color: #289dcc }
 
-            #filters ul li a.active {
+            #filters ul li a.active ,#filters ul li a.df{
                 background: #ffffff;
                 color: #289dcc;
             }
+			
             
 /* Portfolio Filter Transitions ---------------------------------------------------- */
 
@@ -2881,11 +2882,42 @@ h3.error-404 {
 /* ------------------------------------------------------------------------ */
 /* EOF
 /* ------------------------------------------------------------------------ */
+
+/* partner index page */
+.portfolio-item:hover .partner-title ,.portfolio-item:hover .video-title { -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #ffffff !important;
+    border-color: -moz-use-text-color #e4e4e4 #e4e4e4 !important;
+    border-image: none;
+    border-radius: 0 0 4px 4px;
+    border-right: 1px solid #e4e4e4 !important;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    display: block;
+    height: 42px;
+    padding: 8px 15px;
+    transition: all 0.1s ease-in 0s;}
+.portfolio-item:hover .partner-title h4,.portfolio-item:hover .partner-title span,
+.portfolio-item:hover .video-title h4,.portfolio-item:hover .video-title span
+{
+	color: #666666;
+}
+.portfolio-item:hover .video-title { border-color:#e4e4e4 !important; }
+.portfolio-item:hover .partner-title span{
+	color: #999999;
+}	
+
 /*partner detail page.*/
 .portfolio-detail #content a.button{
 	float:left;
 	background:url("framework/images/arrow.png") no-repeat scroll 5% center #F7F7F7;
 	padding-left:2.5%; padding-right:1%;
+}
+.partner-country-description .icon-map-marker {
+    background-position: -26px -73px;
+    height: 16px;
 }
 #back { float:left; width:100%;}
 h3.partner_title, h3.video_title { background:none; border-bottom: 1px solid #f1f1f1;}
@@ -2902,14 +2934,16 @@ padding: 0 0 10px 0;
 .contact_email{width:95% !important;max-width:100% !important;}
 .partner-country-description{width: 100%;float: left;margin: 0;padding: 0;border-bottom: 1px solid #f1f1f1;padding: 0 0 20px 0;margin: 0 0 20px 0;}
 .partner-country-description ul{display: inline; list-style: none; margin: 0; padding: 0;}
-.partner-country-description ul li{display: inline; list-style: none; background: url('framework/images/map_cst.png'); background-repeat: no-repeat; padding-left: 15px; padding-right: 15px; float: left;}
+.partner-country-description ul li{display: inline; list-style: none;  padding-left: 15px; padding-right: 15px; float: left;}
 
 .featured_image_partner{width: 100%;height: 100%;margin-top: 15px;margin-bottom: 5px;}
 .featured_image_partner img{width:100%;}
 /*EOF*/
 /*video details page*/
+
 .video-detail-attributes ul li {
 	background:none;	
 }
+.video-detail-attributes ul li strong { width:auto; text-transform:none;}
 
 /*EOF*/

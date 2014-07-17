@@ -594,5 +594,10 @@ function add_webinar_to_cf7() {
 wpcf7_add_shortcode('wpcf7_add_wd', 'add_webinar_to_cf7', true);
 
 /* Prints the taxonomy box content */
-
+function post_type_tags_fix($request) {
+    if ( isset($request['tag']) && !isset($request['post_type']) )
+    $request['post_type'] = 'any';
+    return $request;
+} 
+add_filter('request', 'post_type_tags_fix');
 ?>

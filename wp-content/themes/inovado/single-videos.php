@@ -18,7 +18,7 @@
                  	<iframe src="<?php echo get_post_meta( get_the_ID(), 'video_url',true)?>?title=0&amp;byline=0&amp;portrait=0&amp;color=2f8ccc" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
 <p><a href="<?php echo get_post_meta( get_the_ID(), 'video_url',true)?>"><?php echo get_post_meta( get_the_ID(), 'sub_title',true)?></a> from <a href="http://vimeo.com/user25219494">GEBS Unison</a> on <a href="https://vimeo.com">Vimeo</a>.</p> 
                  </div>
-           <?php }?>
+           <?php } ?>
                 </div>
                 <div class="six columns">
 			       <div class="portfolio-detail-description">
@@ -30,13 +30,24 @@
                    <div class="portfolio-detail-attributes video-detail-attributes">
                         <h3 class="title video_title"><span>Video Details</span></h3>
                         <ul>
-                            <li><strong>Name</strong> <?php echo get_the_title(get_the_ID());?></li>
+                            <li><strong>Published: </strong> <?php echo get_the_date();?></li>
+                            <?php $posttags = get_the_tags(get_the_ID());
+										if ($posttags) {
+										?>
+                                         <li><strong>Tags:</strong>
+                                         <?php
+										 	
+										foreach ($posttags as $tag) {
+											$tag_string .= "<a href='".get_tag_link($tag->term_id)."'>".$tag->name."</a>, ";						
+										}
+										echo substr($tag_string, 0, -2);
+										?>
+                                        </li>
+										<?php
+										} ?>
+                            
                         </ul>
                     </div>
-                    <!--<div class="portfolio-detail-attributes video-detail-attributes">
-                        <h3 class="title video_title"><span>Video Tags</span></h3>
-                        <div class="video_tags"><?php //the_tags('Tagged with: ',' , ','<br />'); ?></div>    
-                    </div>-->
                     
                  </div>
         	</div>
@@ -103,8 +114,8 @@
 							
 								<?php if ( has_post_thumbnail()) { ?> 
 									<div class="portfolio-it">
-								  		<?php echo $link; ?><span class="portfolio-pic"><?php the_post_thumbnail('eight-columns'); ?><div class="portfolio-overlay"><?php echo $lightboxtype; ?></div></span></a>
-								  		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="portfolio-title"><h4><?php the_title(); ?></h4>
+								  		<?php echo $link; ?><span class="portfolio-pic"><?php the_post_thumbnail('eight-columns'); ?><div class="portfolio-overlay1"><?php echo $lightboxtype; ?></div></span></a>
+								  		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="portfolio-title video-title "><h4><?php the_title(); ?></h4>
 								  		<span>
 											<?php
 												if(get_post_meta( get_the_ID(),'sub_title',true) != '' )
