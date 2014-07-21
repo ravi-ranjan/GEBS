@@ -1871,12 +1871,13 @@ div.wpcf7-validation-errors {
         height: 143px;
     }
     
-    .portfolio-item .portfolio-title {
+    .portfolio-item .portfolio-title,  .portfolio-item:hover .partner-title , .portfolio-item .video-title{
     	height: 42px;
 	    padding:8px 15px 8px 15px;
 	    background: #ffffff;
 	    display:block;
 	    border:1px solid #e4e4e4;
+		border-color:#e4e4e4 !important;
 	    border-top:none;
 	    -webkit-border-radius:0px 0px 4px 4px;
 		   -moz-border-radius:0px 0px 4px 4px;
@@ -2899,11 +2900,11 @@ h3.error-404 {
     height: 42px;
     padding: 8px 15px;
     transition: all 0.1s ease-in 0s;}
-.portfolio-item:hover .partner-title h4,.portfolio-item:hover .partner-title span,
-.portfolio-item:hover .video-title h4,.portfolio-item:hover .video-title span
+.portfolio-item:hover .partner-title h4,.portfolio-item:hover .partner-title span,.portfolio-item:hover .video-title h4
 {
 	color: #666666;
 }
+.portfolio-item:hover .video-title span { color:#999999;}
 .portfolio-item:hover .video-title { border-color:#e4e4e4 !important; }
 .portfolio-item:hover .partner-title span{
 	color: #999999;
